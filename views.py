@@ -1,9 +1,9 @@
 from aiohttp import web
+from http_client import CorreiosHttpClient
 import json
 
 class CorreiosTrackingView(web.View):
 
     async def get(self):
-        trackingCode = self.request.match_info.get('trackingcode')
-        response_obj = { 'status': 'success', 'tracking-code': trackingCode }
-        return web.Response(text=json.dumps(response_obj),status=200)
+        resp = await CorreiosHttpClient().get_correios_tracking_events()
+        return web.Response(text=json.dumps(resp),status=200)
