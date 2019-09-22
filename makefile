@@ -13,3 +13,6 @@ migrations:
 
 migrate:
 	django-admin migrate
+
+test:
+	pytest -s

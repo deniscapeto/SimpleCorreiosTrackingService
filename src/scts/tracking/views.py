@@ -6,7 +6,10 @@ import json
 class CorreiosTrackingView(web.View):
 
     async def get(self):
-        resp = await CorreiosHttpClient().get_correios_tracking_events()
+
+        tracking_code = self.request.match_info.get('tracking_code')
+
+        resp = await CorreiosHttpClient().get_correios_tracking_events(tracking_code)
 
         trackingCodes = ExtractTrackingEvents(resp)
 

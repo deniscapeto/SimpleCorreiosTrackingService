@@ -2,3 +2,6 @@ aiohttp == 3.5.4
 django==2.2.4
 gunicorn==19.9.0
 uvloop==0.12.2
+pytest==4.4.2
+pytest-aiohttp==0.3.0
+beautifulsoup4
