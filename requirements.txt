@@ -1,7 +1,8 @@
 aiohttp == 3.5.4
-django==2.2.4
-gunicorn==19.9.0
+django==2.2.13
+gunicorn==20.0.4
 uvloop==0.12.2
 pytest==4.4.2
 pytest-aiohttp==0.3.0
-beautifulsoup4
+beautifulsoup4==4.9.3
+lxml==4.5.2
