@@ -16,3 +16,12 @@ migrate:
 
 test:
 	pytest -s
+
+release-patch:  ## Create a patch release
+	@bumpversion patch
+
+release-minor:  ## Create a minor release
+	@bumpversion minor
+
+release-major:  ## Create a major release
+	@bumpversion major
