@@ -5,6 +5,10 @@ export PYTHONPATH=$(shell pwd)/src/
 run:
 	gunicorn -b 0.0.0.0:8000 scts:app --worker-class aiohttp.GunicornUVLoopWebWorker --reload
 
+check:
+	isort src
+	flake8 src
+
 install:
 	pip install -r requirements.txt
 

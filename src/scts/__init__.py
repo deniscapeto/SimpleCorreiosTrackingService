@@ -1,5 +1,7 @@
 from django import setup
+
 setup()
 
-from .factory.build_app import build_app
+from src.scts.factory.build_app import build_app  # noqa
+
 app = build_app()

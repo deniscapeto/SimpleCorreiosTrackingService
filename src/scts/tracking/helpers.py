@@ -1,9 +1,11 @@
-from scts.tracking.models import TrackingCode
 from bs4 import BeautifulSoup
 
+from scts.tracking.models import TrackingCode
+
+
 def extract_tracking_events(html):
-    parsed_html = BeautifulSoup(html,features="lxml")
-    tables=parsed_html.find_all("table",{"class":"listEvent"})
+    parsed_html = BeautifulSoup(html, features="lxml")
+    tables = parsed_html.find_all("table", {"class": "listEvent"})
 
     if tables is None:
         return {}
@@ -14,8 +16,8 @@ def extract_tracking_events(html):
         rows = tab.find_all('tr')
         for row in rows:
             cols = row.find_all('td')
-            cols = [ele.text.replace("&nbsp;","").replace("\xa0","").strip().split("\n") for ele in cols]
-            events.append([ele for ele in cols if ele]) # Get rid of empty values
+            cols = [ele.text.replace("&nbsp;", "").replace("\xa0", "").strip().split("\n") for ele in cols]
+            events.append([ele for ele in cols if ele])  # Get rid of empty values
 
     tracking_codes = get_tracking_codes_from_list(events)
 
@@ -24,6 +26,7 @@ def extract_tracking_events(html):
     result = [tracking_code.as_dict() for tracking_code in tracking_codes]
 
     return result
+
 
 def get_tracking_codes_from_list(events):
     trackingCodes = []
@@ -41,6 +44,7 @@ def get_tracking_codes_from_list(events):
         trackingCodes.append(trackingCode)
 
     return trackingCodes
+
 
 def store_tracking_code(tracking_codes):
     for t in tracking_codes:

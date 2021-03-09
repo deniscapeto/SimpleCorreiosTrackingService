@@ -1,5 +1,7 @@
 import pytest
+
 from scts.tracking.helpers import extract_tracking_events
+
 
 class Testextract_tracking_events:
 
@@ -46,10 +48,9 @@ if(!RVBD_EUE){
       else{x.parentNode.insertBefore(j,x);}
    })();}
 </script>
-<script>if(!RVBD_EUE_PARAM){var RVBD_EUE_PARAM={};} RVBD_EUE_PARAM.pageId = 'a2_ac901913-0181-4ced-a86d-3ef8227462b8';</script>             
 <!-- AppInternalsXpert BMX Integration End -->
-<script type="text/javascript"> 
-pageid = '1C658B24-5056-9163-891FB9FC40735A16'; 
+<script type="text/javascript">
+pageid = '1C658B24-5056-9163-891FB9FC40735A16';
 </script>
 <noscript>
 <p>identificador da página</p>
@@ -61,7 +62,7 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
 
   <link href="home2014/css/layout.css"  rel="stylesheet"        type="text/css" />
 <!-- /CSS --->
- 
+
 </head>
 <!--[if lt IE 7]> <body class="ie6"> <![endif]-->
 <!--[if IE 7]>    <body class="ie7"> <![endif]-->
@@ -79,20 +80,17 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
         <li class="contrast" id="contrast"> <span class="separator-bar">&nbsp;</span> <a href="javascript:void(0);" title="Modificar para o modo de alto contraste">Contraste</a> <span class="separator-bar">&nbsp;</span> </li>
         <li> <span class="separator-bar">&nbsp;</span> <a href="http://www.correios.com.br/sobre-correios/sustentabilidade/vertente-social/headmouse-e-teclado-virtual/">Teclado Virtual</a> </li>
         <li> <a href="http://www.correios.com.br/sobre-correios/sustentabilidade/vertente-social/headmouse-e-teclado-virtual/" id="txt-headmouse">Headmouse</a></li>
-        
+
     </ul>
   </div>
 </div>
- 
 <!-- header --->
-
-
 <div class="header">
 <h1 class="logo float-left"> <a href="http://www.correios.com.br" title="Ir para a página incial" alt="Logo Correios"><img src="home2014/img/layout/logo.png" alt="Ir para a página inicial" title="Ir para a página incial"/></a> </h1>
 <div class="acesso_rapido">
 
   <div class="text-right">
-    
+
     <a href="http://apps2.correios.com.br/faleconosco/app/index.php">Fale com os Correios</a><br/>
   </div>
   <div class="produtosaz float-right">
@@ -123,22 +121,19 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
   <br class="clr"/>
   </div>
   <div class="tabs">
-  
   <div class="wrap">
     <ul class="tabs-list">
-      
       <li class="current"> <a href="default.cfm">
         <h2>Sistemas</h2>
         </a> </li>
     </ul>
   </div>
-   
 <!-- /header --->
-<div class="wrap">   
+<div class="wrap">
 <div class="content">
 <div class="laminas" style="display: block;">
 <div class="column1">
-<span class="mver"> 
+<span class="mver">
 <span class="dominio"></span>
 <h3>Rastreamento</h3>
 <ul>
@@ -147,10 +142,7 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
   <li><a href="http://globaltracktrace.ptc.post/gtt.web/Search.aspx" target="_self" >Rastreamento de objetos em outros países</a></li>
   <li><a href="https://www.correios.com.br/precisa-de-ajuda/como-rastrear-um-objeto" target="_self" >Como rastrear um objeto</a></li>
   <li><a href="https://www.correios.com.br/precisa-de-ajuda/como-rastrear-um-objeto/siglas-utilizadas-no-rastreamento-de-objeto" target="_self" >Siglas utilizadas no rastreamento de objetos</a></li>
-
-  
 </ul>
- 
 </span>
 <!-- Fim Menu vertical -->
 </div>
@@ -186,26 +178,16 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
 
 
                         <!-- imagem:  -->
-
-
-
-
                                         <div id="imagemhidden"></div>
 
                                 <div display:block><br />
                                           <br />
-                                          
-                                          
                                                 <br /><br />
 
                                           <script src="sistemas/rastreamento/js/qrcode.js" type="text/javascript"></script>
                                           <script src="sistemas/rastreamento/js/jquery.qrcode.js" type="text/javascript"></script>
                                 </div>
                                 </div>
-
-                
-
-
 <table class="listEvent sro">
 <tr>
 <td class="sroDtEvent" valign="top">02/03/2021 <br/>
@@ -239,8 +221,8 @@ SAO PAULO / SP<br/>
 <td class="sroLbEvent">
 <strong>Objeto em trânsito - por favor aguarde</strong>
 <br/>
- 
-de      Unidade de Tratamento 
+
+de      Unidade de Tratamento
 em      SAO PAULO / SP
 para    Unidade de Distribuição
 em      SAO PAULO / SP<br/>
@@ -256,8 +238,8 @@ SAO PAULO / SP<br/>
 <td class="sroLbEvent">
 <strong>Objeto em trânsito - por favor aguarde</strong>
 <br/>
- 
-de      Agência dos Correios 
+
+de      Agência dos Correios
 em      SAO PAULO / SP
 para    Unidade de Tratamento
 em      SAO PAULO / SP<br/>
@@ -319,11 +301,7 @@ em      SAO PAULO / SP<br/>
                                 <input type="hidden" name="objetos" value="PU524124388BR" />
                         </form>
                         <a class="icon print sro" onClick="document.getElementById('frmprint').submit();"><img width="22px" height="22px" src="home2014/img/trans.gif">Imprimir</a>
-
-
-
                         <!-- pode ser suspenso-->
-                                 
                                 <!-- Não está logado, mas passivel de suspensão -->
 
                                         <a class="icon stop sro" onClick="document.getElementById('formTelaSusp').submit();"><img class="fechar" width="22px" height="22px" src="home2014/img/trans.gif">Suspender Entrega</a>
@@ -352,16 +330,9 @@ em      SAO PAULO / SP<br/>
 
                         <div class="modal">
                         <div id="inline_content2" class="inline_content">
-  
-
-
- 
-
-  
         <h3><br />
       <br />
       O status do objeto pesquisado est&aacute; finalizado.<br />N&atilde;o &eacute; poss&iacute;vel solicitar notifica&ccedil;&atilde;o por SMS.</h3>
-    
 </div>
 
 <script src="sistemas/rastreamento/js/jquery.validationEngine.js" type="text/javascript"></script>
@@ -444,11 +415,8 @@ em      SAO PAULO / SP<br/>
         </ul>
       </div>
       <div class="copy"> <a href="http://www.correios.com.br/sobre-correios/fale-com-os-correios/politica-de-privacidade-e-notas-legais/">Pol&iacute;tica de Privacidade e notas legais</a> -  © Copyright  2018 Correios - Todos os direitos reservados. </div>
-      
   </div>
-  
 </div>
- 
 </div>
 <!-- class="back" -->
 </body></html>

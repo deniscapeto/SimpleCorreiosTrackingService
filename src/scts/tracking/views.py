@@ -1,7 +1,10 @@
-from aiohttp import web
-from scts.tracking.http_client import CorreiosHttpClient
-from scts.tracking.helpers import extract_tracking_events
 import json
+
+from aiohttp import web
+
+from scts.tracking.helpers import extract_tracking_events
+from scts.tracking.http_client import CorreiosHttpClient
+
 
 class CorreiosTrackingView(web.View):
 
@@ -13,4 +16,4 @@ class CorreiosTrackingView(web.View):
 
         trackingCodes = extract_tracking_events(resp)
 
-        return web.Response(text=json.dumps(trackingCodes),status=200)
+        return web.Response(text=json.dumps(trackingCodes), status=200)
