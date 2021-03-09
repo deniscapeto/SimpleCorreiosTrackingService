@@ -1,7 +1,7 @@
 import pytest
-from scts.tracking.helpers import ExtractTrackingEvents
+from scts.tracking.helpers import extract_tracking_events
 
-class TestExtractTrackingEvents:
+class Testextract_tracking_events:
 
     @pytest.fixture
     def fake_html(self):
@@ -203,183 +203,85 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
                                 </div>
                                 </div>
 
-                <table class="listEvent sro">
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">23/07/2019 <br />
-                15:44       <br />
-
-                                <label style="text-transform:capitalize;">BELO HORIZONTE&nbsp;/&nbsp;MG</label>
-
-                        </td>
-                        <td class="sroLbEvent">
+                
 
 
-                                <strong>Objeto entregue ao destinatário</strong>
-                                 <br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">23/07/2019 <br />
-                12:43       <br />
-
-                                <label style="text-transform:capitalize;">BELO HORIZONTE&nbsp;/&nbsp;MG</label>
-
-                        </td>
-                        <td class="sroLbEvent">
-
-
-                                <strong>Objeto saiu para entrega ao destinatário</strong>
-                                 <br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">22/07/2019 <br />
-                22:28       <br />
-                        SAO PAULO / SP<br />
-
-                        </td>
-                        <td class="sroLbEvent">
-
-
-                                <strong>Objeto encaminhado</strong>
-                                 <br />
-                                 
-
-                                                de      Unidade de Tratamento 
-                                                em      SAO PAULO / SP
-                                                para    Unidade de Tratamento
-                                                em      BELO HORIZONTE / MG<br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">19/07/2019 <br />
-                15:05       <br />
-                        CAJAMAR / SP<br />
-
-                        </td>
-                        <td class="sroLbEvent">
-
-
-                                <strong>Objeto encaminhado</strong>
-                                 <br />
-                                 
-
-                                                de      Unidade de Tratamento 
-                                                em      CAJAMAR / SP
-                                                para    Unidade de Tratamento
-                                                em      SAO PAULO / SP<br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">15/07/2019 <br />
-                08:31       <br />
-                        BELO HORIZONTE / MG<br />
-
-                        </td>
-                        <td class="sroLbEvent">
-
-
-                                <strong>Objeto encaminhado</strong>
-                                 <br />
-                                 
-
-                                                de      Unidade de Tratamento 
-                                                em      BELO HORIZONTE / MG
-                                                para    Unidade de Tratamento
-                                                em      SAO PAULO / SP<br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">11/07/2019 <br />
-                15:14       <br />
-                        RIBEIRAO PRETO / SP<br />
-
-                        </td>
-                        <td class="sroLbEvent">
+<table class="listEvent sro">
+<tr>
+<td class="sroDtEvent" valign="top">02/03/2021 <br/>
+13:54       <br/>
+<label style="text-transform:capitalize;">SAO PAULO / SP</label>
+</td>
+<td class="sroLbEvent">
+<strong>Objeto entregue ao destinatário</strong>
+<br/>
+</td>
+</tr>
+</table>
+<table class="listEvent sro">
+<tr>
+<td class="sroDtEvent" valign="top">02/03/2021 <br/>
+08:59       <br/>
+<label style="text-transform:capitalize;">SAO PAULO / SP</label>
+</td>
+<td class="sroLbEvent">
+<strong>Objeto saiu para entrega ao destinatário</strong>
+<br/>
+</td>
+</tr>
+</table>
+<table class="listEvent sro">
+<tr>
+<td class="sroDtEvent" valign="top">02/03/2021 <br/>
+05:09       <br/>
+SAO PAULO / SP<br/>
+</td>
+<td class="sroLbEvent">
+<strong>Objeto em trânsito - por favor aguarde</strong>
+<br/>
+ 
+de      Unidade de Tratamento 
+em      SAO PAULO / SP
+para    Unidade de Distribuição
+em      SAO PAULO / SP<br/>
+</td>
+</tr>
+</table>
+<table class="listEvent sro">
+<tr>
+<td class="sroDtEvent" valign="top">01/03/2021 <br/>
+17:57       <br/>
+SAO PAULO / SP<br/>
+</td>
+<td class="sroLbEvent">
+<strong>Objeto em trânsito - por favor aguarde</strong>
+<br/>
+ 
+de      Agência dos Correios 
+em      SAO PAULO / SP
+para    Unidade de Tratamento
+em      SAO PAULO / SP<br/>
+</td>
+</tr>
+</table>
+<table class="listEvent sro">
+<tr>
+<td class="sroDtEvent" valign="top">01/03/2021 <br/>
+17:27       <br/>
+<label style="text-transform:capitalize;">SAO PAULO / SP</label>
+</td>
+<td class="sroLbEvent">
+<strong>Objeto postado</strong>
+<br/>
+</td>
+</tr>
+</table>
 
 
-                                <strong>Objeto encaminhado</strong>
-                                 <br />
-                                 
-
-                                                de      Unidade de Tratamento 
-                                                em      RIBEIRAO PRETO / SP
-                                                para    Unidade de Tratamento
-                                                em      BELO HORIZONTE / MG<br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">11/07/2019 <br />
-                14:17       <br />
-                        RIBEIRAO PRETO / SP<br />
-
-                        </td>
-                        <td class="sroLbEvent">
 
 
-                                <strong>Objeto encaminhado</strong>
-                                 <br />
-                                 
-
-                                                de      Unidade de Tratamento 
-                                                em      RIBEIRAO PRETO / SP
-                                                para    Unidade de Tratamento
-                                                em      SAO PAULO / SP<br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">10/07/2019 <br />
-                18:12       <br />
-                        RIBEIRAO PRETO / SP<br />
-
-                        </td>
-                        <td class="sroLbEvent">
 
 
-                                <strong>Objeto encaminhado</strong>
-                                 <br />
-                                 
-
-                                                de      Agência dos Correios 
-                                                em      RIBEIRAO PRETO / SP
-                                                para    Unidade de Tratamento
-                                                em      RIBEIRAO PRETO / SP<br />
-
-                        </td>
-                                </tr>
-
-                        <tr>
-                        <td class="sroDtEvent" valign="top">10/07/2019 <br />
-                12:23       <br />
-
-                                <label style="text-transform:capitalize;">RIBEIRAO PRETO&nbsp;/&nbsp;SP</label>
-
-                        </td>
-                        <td class="sroLbEvent">
-
-
-                                <strong>Objeto postado</strong>
-                                 <br />
-
-                        </td>
-                                </tr>
-
-                </table>
                 <br />
 
                 <div id="imagem" style="display:none">
@@ -556,5 +458,5 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
 """
 
     def test_should_return_list_with_valid_html(self, fake_html):
-        tracking_code_list = ExtractTrackingEvents(fake_html)
-        assert len(tracking_code_list) > 0
+        tracking_code_list = extract_tracking_events(fake_html)
+        assert len(tracking_code_list) == 5

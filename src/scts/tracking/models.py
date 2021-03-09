@@ -11,11 +11,11 @@ class TrackingCode(models.Model):
         self.location = location
         self.description = description
 
-    def serialize(self):    
+    def as_dict(self):    
         return {
-            "date" : self.date,
-            "location" : self.location,
-            "description" : self.description,
+            'date' : self.date,
+            'location' : self.location,
+            'description' : self.description,
          }
 
     class Meta:

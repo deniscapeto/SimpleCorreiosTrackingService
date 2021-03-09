@@ -1,27 +1,27 @@
 from scts.tracking.models import TrackingCode
-from django.core import serializers
 from bs4 import BeautifulSoup
 
-def ExtractTrackingEvents(html):
-
+def extract_tracking_events(html):
     parsed_html = BeautifulSoup(html,features="lxml")
-    tab=parsed_html.find("table",{"class":"listEvent"})
+    tables=parsed_html.find_all("table",{"class":"listEvent"})
 
-    if tab is None:
+    if tables is None:
         return {}
 
     events = []
-    rows = tab.find_all('tr')
-    for row in rows:
-        cols = row.find_all('td')
-        cols = [ele.text.replace("&nbsp;","").replace("\xa0","").strip().split("\n") for ele in cols]
-        events.append([ele for ele in cols if ele]) # Get rid of empty values
+
+    for tab in tables:
+        rows = tab.find_all('tr')
+        for row in rows:
+            cols = row.find_all('td')
+            cols = [ele.text.replace("&nbsp;","").replace("\xa0","").strip().split("\n") for ele in cols]
+            events.append([ele for ele in cols if ele]) # Get rid of empty values
 
     tracking_codes = get_tracking_codes_from_list(events)
 
     store_tracking_code(tracking_codes)
 
-    result = serializers.serialize('json', tracking_codes)
+    result = [tracking_code.as_dict() for tracking_code in tracking_codes]
 
     return result
 
