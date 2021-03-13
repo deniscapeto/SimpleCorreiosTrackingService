@@ -9,3 +9,4 @@ lxml==4.6.2
 bumpversion==0.5.3
 flake8==2.2.0
 isort==5.7.0
+pytest-cov==2.7.1
