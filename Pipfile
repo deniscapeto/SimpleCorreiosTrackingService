@@ -19,6 +19,8 @@ pytest = "==4.4.2"
 pytest-aiohttp = "==0.3.0"
 pytest-cov = "~=2.7.0"
 aioresponses = "==0.5.1"
+coveralls = "==3.0.0"
+coverage = "==5.5"
 
 [requires]
 python_version = "3.7"

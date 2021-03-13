@@ -31,3 +31,7 @@ release-minor:  ## Create a minor release
 
 release-major:  ## Create a major release
 	@bumpversion major
+
+coveralls:
+	coverage run --source=src/scts --rcfile=setup.cfg -m pytest src
+	coveralls --rcfile=setup.cfg

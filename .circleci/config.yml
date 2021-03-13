@@ -32,6 +32,7 @@ jobs:
           command: |
             . venv/bin/activate
             make test
+            make coveralls
           name: Test
 
 workflows:
