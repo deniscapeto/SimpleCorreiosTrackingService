@@ -20,7 +20,7 @@ migrate:
 	django-admin migrate
 
 test:
-	pytest -s -x --cov=src --cov-config=setup.cfg --cov-report term-missing $(path)
+	pipenv run pytest -s -x --cov=src --cov-config=setup.cfg --cov-report term-missing $(path)
 
 release-patch:  ## Create a patch release
 	@bumpversion patch
