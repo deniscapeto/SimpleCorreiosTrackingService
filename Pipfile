@@ -6,14 +6,14 @@ name = "pypi"
 [packages]
 aiohttp = "==3.6.3"
 gunicorn = "==20.0.4"
-uvloop = "==0.12.2"
+uvloop = "==0.15.2"
 beautifulsoup4 = "==4.9.3"
 lxml = "==4.6.2"
 django = "==2.2.13"
 
 [dev-packages]
 bumpversion = "==0.5.3"
-flake8 = "==2.2.0"
+flake8 = "==3.8.0"
 isort = "==5.7.0"
 pytest = "==4.4.2"
 pytest-aiohttp = "==0.3.0"
