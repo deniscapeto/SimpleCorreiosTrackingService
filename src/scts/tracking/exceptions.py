@@ -1,0 +1,2 @@
+class CorreiosException(Exception):
+    pass

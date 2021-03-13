@@ -1,4 +1,7 @@
 import aiohttp
+from aiohttp.client_exceptions import ClientResponseError
+
+from scts.tracking.exceptions import CorreiosException
 
 
 class CorreiosHttpClient:
@@ -13,6 +16,12 @@ class CorreiosHttpClient:
             payload = f"acao=track&objetos={tracking_code}&btnPesq=Buscar"
             headers = {'Content-Type': 'application/x-www-form-urlencoded'}
             url = self.urlPrefix
-            async with session.post(url, json=payload, headers=headers) as resp:
-                print(resp.status)
-                return await resp.text()
+
+            try:
+                async with session.post(url, json=payload, headers=headers) as resp:
+                    resp.raise_for_status()
+                    print(resp.status)
+                    return await resp.text()
+
+            except ClientResponseError as exc:
+                raise CorreiosException(exc)

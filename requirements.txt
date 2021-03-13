@@ -1,4 +1,4 @@
-aiohttp == 3.7.4
+aiohttp == 3.6.3
 django==2.2.13
 gunicorn==20.0.4
 uvloop==0.12.2
@@ -10,3 +10,5 @@ bumpversion==0.5.3
 flake8==2.2.0
 isort==5.7.0
 pytest-cov==2.7.1
+aioresponses==0.5.1
+pytest-aiohttp==0.3.0
