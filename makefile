@@ -3,14 +3,15 @@ export DJANGO_SETTINGS_MODULE=$(settings)
 export PYTHONPATH=$(shell pwd)/src/
 
 run:
-	gunicorn -b 0.0.0.0:8000 scts:app --worker-class aiohttp.GunicornUVLoopWebWorker --reload
+	pipenv run gunicorn -b 0.0.0.0:8000 scts:app --worker-class aiohttp.GunicornUVLoopWebWorker --reload
 
 check:
 	isort src
 	flake8 src
 
 install:
-	pip install -r requirements.txt
+	pip install pipenv
+	pipenv install --dev
 
 migrations:
 	django-admin makemigrations
