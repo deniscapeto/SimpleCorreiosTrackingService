@@ -7,7 +7,7 @@ def extract_tracking_events(html):
     parsed_html = BeautifulSoup(html, features="lxml")
     tables = parsed_html.find_all("table", {"class": "listEvent"})
 
-    if tables is None:
+    if len(tables) == 0:
         return {}
 
     events = []
