@@ -68,3 +68,8 @@ Run tests and check Coverage
 .. code::
 
     make tests
+
+Diagrams
+--------
+
+.. image:: docs/architecture_image.png
