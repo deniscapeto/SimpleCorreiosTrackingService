@@ -35,3 +35,6 @@ release-major:  ## Create a major release
 coveralls:
 	coverage run --source=src/scts --rcfile=setup.cfg -m pytest src
 	coveralls --rcfile=setup.cfg
+
+generate-docs:
+	python docs/architecture_doc.py
