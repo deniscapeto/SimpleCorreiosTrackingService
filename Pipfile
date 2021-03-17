@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-aiohttp = "==3.6.3"
+aiohttp = "==3.7.4"
 gunicorn = "==20.0.4"
 uvloop = "==0.15.2"
 beautifulsoup4 = "==4.9.3"
@@ -18,7 +18,7 @@ isort = "==5.7.0"
 pytest = "==4.4.2"
 pytest-aiohttp = "==0.3.0"
 pytest-cov = "~=2.7.0"
-aioresponses = "==0.5.1"
+aioresponses = "==0.7.2"
 coveralls = "==3.0.0"
 coverage = "==5.5"
 diagrams = "0.19.1"
