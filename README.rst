@@ -34,7 +34,18 @@ Or you can just create a virtualenv and activate:
 
 Just make sure you are using python ``3.8``.
 
-Then run:
+Requirements
+~~~~~~~~~~~~
+
+STCS uses **diagram** lib that depends on `Graphviz
+<https://www.graphviz.org/>`_ to render the diagram, so you need to install Graphviz to update diagrams images
+
+.. code:: shell
+
+    brew install graphviz
+
+Install
+~~~~~~~
 
 .. code:: shell
 
