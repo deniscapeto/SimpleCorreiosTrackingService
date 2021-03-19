@@ -5,11 +5,12 @@ name = "pypi"
 
 [packages]
 aiohttp = "==3.7.4"
+typing_extensions = "==3.7.4.3" 
 gunicorn = "==20.0.4"
 uvloop = "==0.15.2"
 beautifulsoup4 = "==4.9.3"
 lxml = "==4.6.2"
-django = "==2.2.13"
+django = "==2.2.18"
 
 [dev-packages]
 bumpversion = "==0.5.3"
@@ -24,4 +25,4 @@ coverage = "==5.5"
 diagrams = "0.19.1"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8.2"

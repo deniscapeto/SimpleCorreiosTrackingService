@@ -13,6 +13,9 @@ install:
 	pip install pipenv
 	pipenv install --dev
 
+uninstall-all:
+	pip freeze | xargs pip uninstall -y
+
 migrations:
 	django-admin makemigrations
 
