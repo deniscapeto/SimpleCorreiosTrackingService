@@ -38,3 +38,10 @@ coveralls:
 
 generate-docs:
 	python docs/architecture_doc.py
+
+docker-build:
+	@docker rmi -f scts
+	@docker build --tag scts .
+
+docker-run: # Run in background
+	@docker start scts || echo "No container found."  && echo "Running new container..."  && docker run -d --publish 8000:8000 --name scts scts && echo "Container created and running!"
