@@ -11,21 +11,17 @@ from scts.tracking.adapters.correios.exceptions import CorreiosException
 class TestCorreiosTrackingView():
 
     @pytest.fixture
-    def tracking_code(self):
-        return 'ON769530126BR'
-
-    @pytest.fixture
     def client(self, aiohttp_client):
         loop = asyncio.get_event_loop()
         app = build_app()
         return loop.run_until_complete(aiohttp_client(app))
 
     @pytest.fixture
-    def mock_get_tracking_events(self, fake_html):
+    def mock_get_tracking_events(self, tracking_codes_list):
         with patch(
-            'scts.tracking.views.CorreiosHttpClient.get_correios_tracking_events'
+            'scts.tracking.views.get_tracking_events'
         ) as mock:
-            mock.return_value = fake_html
+            mock.return_value = [tracking_code.as_dict() for tracking_code in tracking_codes_list]
             yield mock
 
     async def test_should_return_200_when_tracking_code_is_valid(

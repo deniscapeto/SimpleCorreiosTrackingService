@@ -1,5 +1,6 @@
 settings=scts.settings.scts_settings
 export DJANGO_SETTINGS_MODULE=$(settings)
+export PYTHONPATH=$(shell pwd)/
 
 run:
 	pipenv run gunicorn -b 0.0.0.0:8000 scts:app --worker-class aiohttp.GunicornUVLoopWebWorker --reload
@@ -35,7 +36,7 @@ release-major:  ## Create a major release
 	@bumpversion major
 
 coveralls:
-	coverage run --source=scts --rcfile=setup.cfg -m pytest scts
+	coverage run --source=scts/ --rcfile=setup.cfg -m pytest tests
 	coveralls --rcfile=setup.cfg
 
 generate-docs:

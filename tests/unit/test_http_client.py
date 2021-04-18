@@ -1,9 +1,10 @@
+from unittest.mock import patch
 import pytest
 from aiohttp.client_exceptions import ClientResponseError
 from aioresponses import aioresponses
 
 from scts.tracking.adapters.correios.exceptions import CorreiosException
-from scts.tracking.adapters.correios.http_client import CorreiosHttpClient
+from scts.tracking.adapters.correios.http_client import CorreiosHttpClient, get_correios_tracking_events
 
 
 class TestCorreiosHttpClient():
@@ -17,7 +18,7 @@ class TestCorreiosHttpClient():
 
             mock_aioresponse.post(url, status=200)
 
-            html = await CorreiosHttpClient().get_correios_tracking_events('PU524124388BR')
+            html = await CorreiosHttpClient().get_tracking_events('PU524124388BR')
 
             assert html is not None
 
@@ -36,4 +37,31 @@ class TestCorreiosHttpClient():
 
             with pytest.raises(CorreiosException):
 
-                await CorreiosHttpClient().get_correios_tracking_events('PU524124388BR')
+                await CorreiosHttpClient().get_tracking_events('PU524124388BR')
+
+@pytest.fixture
+def mock_extract_tracking_events(tracking_codes_list):
+    with patch(
+        'scts.tracking.adapters.correios.http_client.extract_tracking_events'
+    ) as mock:
+        mock.return_value = tracking_codes_list
+        yield mock
+
+@pytest.fixture
+def mock_get_tracking_events(fake_html):
+    with patch(
+        'scts.tracking.adapters.correios.http_client.CorreiosHttpClient.get_tracking_events'
+    ) as mock:
+        mock.return_value = fake_html
+        yield mock
+
+async def test_should_return_valid_tracking_codes_when_given_valid_code(
+    mock_get_tracking_events,
+    mock_extract_tracking_events,
+    tracking_code,
+    tracking_codes_list
+):
+
+    events = await get_correios_tracking_events(tracking_code)
+
+    assert events == tracking_codes_list

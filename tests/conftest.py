@@ -1,3 +1,4 @@
+from scts.tracking.domain.models import TrackingCode
 import pytest
 
 
@@ -766,4 +767,16 @@ def tracking_codes_dict():
         {'date': '01/03/2021 17:27', 'location': 'SAO PAULO / SP', 'description': 'Objeto postado'}
     ]
 
+@pytest.fixture
+def tracking_codes_list():
+    return [
+        TrackingCode('02/03/2021 13:54', 'SAO PAULO / SP', 'Objeto entregue ao destinatário'),
+        TrackingCode('02/03/2021 08:59', 'SAO PAULO / SP', 'Objeto saiu para entrega ao destinatário'),
+        TrackingCode('02/03/2021 05:09', 'SAO PAULO / SP', 'Objeto em trânsito - por favor aguarde   de Unidade de Tratamento em SAO PAULO / SP para Unidade de Distribuição em SAO PAULO / SP'),
+        TrackingCode('01/03/2021 17:57', 'SAO PAULO / SP', 'Objeto em trânsito - por favor aguarde   de Agência dos Correios em SAO PAULO / SP para Unidade de Tratamento em SAO PAULO / SP'),
+        TrackingCode('01/03/2021 17:27', 'SAO PAULO / SP', 'Objeto postado')
+    ]
 
+@pytest.fixture
+def tracking_code():
+    return 'ON769530126BR'
