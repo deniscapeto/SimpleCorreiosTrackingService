@@ -1,4 +1,4 @@
-from scts.tracking.helpers import extract_tracking_events
+from scts.tracking.adapters.correios.http_client import extract_tracking_events
 
 
 class Testextract_tracking_events:
