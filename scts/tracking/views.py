@@ -2,9 +2,9 @@ import json
 
 from aiohttp import web
 
-from scts.tracking.exceptions import CorreiosException
+from scts.tracking.adapters.correios.exceptions import CorreiosException
+from scts.tracking.adapters.correios.http_client import CorreiosHttpClient
 from scts.tracking.helpers import extract_tracking_events
-from scts.tracking.http_client import CorreiosHttpClient
 
 
 class CorreiosTrackingView(web.View):

@@ -2,8 +2,8 @@ import pytest
 from aiohttp.client_exceptions import ClientResponseError
 from aioresponses import aioresponses
 
-from scts.tracking.exceptions import CorreiosException
-from scts.tracking.http_client import CorreiosHttpClient
+from scts.tracking.adapters.correios.exceptions import CorreiosException
+from scts.tracking.adapters.correios.http_client import CorreiosHttpClient
 
 
 class TestCorreiosHttpClient():

@@ -1,13 +1,12 @@
 settings=scts.settings.scts_settings
 export DJANGO_SETTINGS_MODULE=$(settings)
-export PYTHONPATH=$(shell pwd)/src/
 
 run:
 	pipenv run gunicorn -b 0.0.0.0:8000 scts:app --worker-class aiohttp.GunicornUVLoopWebWorker --reload
 
 check:
-	isort src
-	flake8 src
+	isort scts
+	flake8 scts
 
 install:
 	pip install pipenv
@@ -23,7 +22,7 @@ migrate:
 	django-admin migrate
 
 test:
-	pipenv run pytest -s -x --cov=src --cov-config=setup.cfg --cov-report term-missing $(path)
+	pipenv run pytest -s -x --cov=scts --cov-config=setup.cfg --cov-report term-missing $(path)
 
 release-patch:  ## Create a patch release
 	@bumpversion patch
@@ -36,7 +35,7 @@ release-major:  ## Create a major release
 	@bumpversion major
 
 coveralls:
-	coverage run --source=src/scts --rcfile=setup.cfg -m pytest src
+	coverage run --source=scts --rcfile=setup.cfg -m pytest scts
 	coveralls --rcfile=setup.cfg
 
 generate-docs:
@@ -47,4 +46,4 @@ docker-build:
 	@docker build --tag scts .
 
 docker-run: # Run in background
-	@docker start scts || echo "No container found."  && echo "Running new container..."  && docker run -d --publish 8000:8000 --name scts scts && echo "Container created and running!"
+	@docker start scts || (echo "No container found." && echo "Running new container..."  && docker run -d --publish 8000:8000 --name scts scts && echo "Container created and running!")

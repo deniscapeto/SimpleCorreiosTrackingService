@@ -1,7 +1,7 @@
 import aiohttp
 from aiohttp.client_exceptions import ClientResponseError
 
-from scts.tracking.exceptions import CorreiosException
+from scts.tracking.adapters.correios.exceptions import CorreiosException
 
 
 class CorreiosHttpClient:
