@@ -5,7 +5,7 @@ from unittest.mock import patch
 import pytest
 
 from scts.factory.build_app import build_app
-from scts.tracking.exceptions import CorreiosException
+from scts.tracking.adapters.correios.exceptions import CorreiosException
 
 
 class TestCorreiosTrackingView():

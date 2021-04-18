@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from scts.tracking.models import TrackingCode
+from scts.tracking.domain.models import TrackingCode
 
 
 def extract_tracking_events(html):
