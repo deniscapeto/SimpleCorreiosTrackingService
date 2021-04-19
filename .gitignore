@@ -2,4 +2,4 @@ __pycache__/
 .venv
 .vscode
 .coverage
-.scts.db
+scts/settings/scts.db
