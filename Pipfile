@@ -9,7 +9,7 @@ typing_extensions = "==3.7.4.3"
 gunicorn = "==20.0.4"
 uvloop = "==0.15.2"
 beautifulsoup4 = "==4.9.3"
-lxml = "==4.6.2"
+lxml = "==4.6.3"
 django = "==3.2"
 
 [dev-packages]
