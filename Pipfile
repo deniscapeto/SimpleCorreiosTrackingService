@@ -10,7 +10,7 @@ gunicorn = "==20.0.4"
 uvloop = "==0.15.2"
 beautifulsoup4 = "==4.9.3"
 lxml = "==4.6.2"
-django = "==2.2.18"
+django = "==3.2"
 
 [dev-packages]
 bumpversion = "==0.5.3"
