@@ -13,7 +13,7 @@ class CorreiosTrackingView(web.View):
         tracking_code = self.request.match_info.get('tracking_code')
 
         try:
-            trackingCodes = await get_tracking_events(tracking_code)
+            tracking_events = await get_tracking_events(tracking_code)
 
         except CorreiosException:
             error_body = json.dumps(
@@ -28,4 +28,4 @@ class CorreiosTrackingView(web.View):
         except Exception:
             return web.Response(status=500)
 
-        return web.Response(text=json.dumps(trackingCodes), status=200)
+        return web.Response(text=json.dumps(tracking_events), status=200)

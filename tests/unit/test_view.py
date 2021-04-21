@@ -17,18 +17,18 @@ class TestCorreiosTrackingView():
         return loop.run_until_complete(aiohttp_client(app))
 
     @pytest.fixture
-    def mock_get_tracking_events(self, tracking_codes_list):
+    def mock_get_tracking_events(self, tracking_events_list):
         with patch(
             'scts.tracking.views.get_tracking_events'
         ) as mock:
-            mock.return_value = [tracking_code.as_dict() for tracking_code in tracking_codes_list]
+            mock.return_value = [tracking_event.as_dict() for tracking_event in tracking_events_list]
             yield mock
 
     async def test_should_return_200_when_tracking_code_is_valid(
         self,
         client,
         mock_get_tracking_events,
-        tracking_codes_dict,
+        tracking_events_dict,
         tracking_code
     ):
 
@@ -37,7 +37,7 @@ class TestCorreiosTrackingView():
         assert resp.status == 200
         response_text = await resp.text()
 
-        assert json.loads(response_text) == tracking_codes_dict
+        assert json.loads(response_text) == tracking_events_dict
 
     async def test_should_return_200_when_correios_client_returned_error(
         self,
