@@ -40,11 +40,11 @@ class TestCorreiosHttpClient():
                 await CorreiosHttpClient().get_tracking_events('PU524124388BR')
 
 @pytest.fixture
-def mock_extract_tracking_events(tracking_codes_list):
+def mock_extract_tracking_events(tracking_events_list):
     with patch(
         'scts.tracking.adapters.correios.http_client.extract_tracking_events'
     ) as mock:
-        mock.return_value = tracking_codes_list
+        mock.return_value = tracking_events_list
         yield mock
 
 @pytest.fixture
@@ -55,13 +55,13 @@ def mock_get_tracking_events(fake_html):
         mock.return_value = fake_html
         yield mock
 
-async def test_should_return_valid_tracking_codes_when_given_valid_code(
+async def test_should_return_valid_tracking_events_when_given_valid_code(
     mock_get_tracking_events,
     mock_extract_tracking_events,
     tracking_code,
-    tracking_codes_list
+    tracking_events_list
 ):
 
     events = await get_correios_tracking_events(tracking_code)
 
-    assert events == tracking_codes_list
+    assert events == tracking_events_list

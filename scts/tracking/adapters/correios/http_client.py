@@ -3,7 +3,7 @@ from aiohttp.client_exceptions import ClientResponseError
 from bs4 import BeautifulSoup
 
 from scts.tracking.adapters.correios.exceptions import CorreiosException
-from scts.tracking.domain.models import TrackingCode
+from scts.tracking.domain.models import TrackingEvent
 
 
 class CorreiosHttpClient:
@@ -33,12 +33,12 @@ async def get_correios_tracking_events(tracking_code):
 
     html_response = await CorreiosHttpClient().get_tracking_events(tracking_code)
 
-    tracking_codes = extract_tracking_events(html_response)
+    tracking_events = extract_tracking_events(html_response, tracking_code)
 
-    return tracking_codes
+    return tracking_events
 
 
-def extract_tracking_events(html):
+def extract_tracking_events(html, tracking_code):
     parsed_html = BeautifulSoup(html, features="lxml")
     tables = parsed_html.find_all("table", {"class": "listEvent"})
 
@@ -54,13 +54,13 @@ def extract_tracking_events(html):
             cols = [ele.text.replace("&nbsp;", "").replace("\xa0", "").strip().split("\n") for ele in cols]
             events.append([ele for ele in cols if ele])  # Get rid of empty values
 
-    tracking_codes = get_tracking_codes_from_list(events)
+    tracking_events = get_tracking_events_from_list(events, tracking_code)
 
-    return tracking_codes
+    return tracking_events
 
 
-def get_tracking_codes_from_list(events):
-    trackingCodes = []
+def get_tracking_events_from_list(events, tracking_code):
+    tracking_events = []
 
     for d in events:
         date = d[0][0].strip()
@@ -71,7 +71,7 @@ def get_tracking_codes_from_list(events):
 
         general_description = ' '.join([" ".join(descricao.split()) for descricao in descricoes])
 
-        trackingCode = TrackingCode(datetime, location, general_description)
-        trackingCodes.append(trackingCode)
+        tracking_event = TrackingEvent(tracking_code, datetime, location, general_description)
+        tracking_events.append(tracking_event)
 
-    return trackingCodes
+    return tracking_events

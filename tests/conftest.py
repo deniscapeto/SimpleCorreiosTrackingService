@@ -1,4 +1,4 @@
-from scts.tracking.domain.models import TrackingCode
+from scts.tracking.domain.models import TrackingEvent
 import pytest
 
 
@@ -758,23 +758,27 @@ pageid = '1C658B24-5056-9163-891FB9FC40735A16';
 
 
 @pytest.fixture
-def tracking_codes_dict():
+def tracking_events_dict(
+  tracking_code
+):
     return [
-        {'date': '02/03/2021 13:54', 'location': 'SAO PAULO / SP', 'description': 'Objeto entregue ao destinatário'},
-        {'date': '02/03/2021 08:59', 'location': 'SAO PAULO / SP', 'description': 'Objeto saiu para entrega ao destinatário'},
-        {'date': '02/03/2021 05:09', 'location': 'SAO PAULO / SP', 'description': 'Objeto em trânsito - por favor aguarde   de Unidade de Tratamento em SAO PAULO / SP para Unidade de Distribuição em SAO PAULO / SP'},
-        {'date': '01/03/2021 17:57', 'location': 'SAO PAULO / SP', 'description': 'Objeto em trânsito - por favor aguarde   de Agência dos Correios em SAO PAULO / SP para Unidade de Tratamento em SAO PAULO / SP'},
-        {'date': '01/03/2021 17:27', 'location': 'SAO PAULO / SP', 'description': 'Objeto postado'}
+        {'code': tracking_code, 'date': '02/03/2021 13:54', 'location': 'SAO PAULO / SP', 'description': 'Objeto entregue ao destinatário'},
+        {'code': tracking_code, 'date': '02/03/2021 08:59', 'location': 'SAO PAULO / SP', 'description': 'Objeto saiu para entrega ao destinatário'},
+        {'code': tracking_code, 'date': '02/03/2021 05:09', 'location': 'SAO PAULO / SP', 'description': 'Objeto em trânsito - por favor aguarde   de Unidade de Tratamento em SAO PAULO / SP para Unidade de Distribuição em SAO PAULO / SP'},
+        {'code': tracking_code, 'date': '01/03/2021 17:57', 'location': 'SAO PAULO / SP', 'description': 'Objeto em trânsito - por favor aguarde   de Agência dos Correios em SAO PAULO / SP para Unidade de Tratamento em SAO PAULO / SP'},
+        {'code': tracking_code, 'date': '01/03/2021 17:27', 'location': 'SAO PAULO / SP', 'description': 'Objeto postado'}
     ]
 
 @pytest.fixture
-def tracking_codes_list():
+def tracking_events_list(
+  tracking_code
+):
     return [
-        TrackingCode('02/03/2021 13:54', 'SAO PAULO / SP', 'Objeto entregue ao destinatário'),
-        TrackingCode('02/03/2021 08:59', 'SAO PAULO / SP', 'Objeto saiu para entrega ao destinatário'),
-        TrackingCode('02/03/2021 05:09', 'SAO PAULO / SP', 'Objeto em trânsito - por favor aguarde   de Unidade de Tratamento em SAO PAULO / SP para Unidade de Distribuição em SAO PAULO / SP'),
-        TrackingCode('01/03/2021 17:57', 'SAO PAULO / SP', 'Objeto em trânsito - por favor aguarde   de Agência dos Correios em SAO PAULO / SP para Unidade de Tratamento em SAO PAULO / SP'),
-        TrackingCode('01/03/2021 17:27', 'SAO PAULO / SP', 'Objeto postado')
+        TrackingEvent(tracking_code, '02/03/2021 13:54', 'SAO PAULO / SP', 'Objeto entregue ao destinatário'),
+        TrackingEvent(tracking_code, '02/03/2021 08:59', 'SAO PAULO / SP', 'Objeto saiu para entrega ao destinatário'),
+        TrackingEvent(tracking_code, '02/03/2021 05:09', 'SAO PAULO / SP', 'Objeto em trânsito - por favor aguarde   de Unidade de Tratamento em SAO PAULO / SP para Unidade de Distribuição em SAO PAULO / SP'),
+        TrackingEvent(tracking_code, '01/03/2021 17:57', 'SAO PAULO / SP', 'Objeto em trânsito - por favor aguarde   de Agência dos Correios em SAO PAULO / SP para Unidade de Tratamento em SAO PAULO / SP'),
+        TrackingEvent(tracking_code, '01/03/2021 17:27', 'SAO PAULO / SP', 'Objeto postado')
     ]
 
 @pytest.fixture
