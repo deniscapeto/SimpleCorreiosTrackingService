@@ -1,4 +1,4 @@
-from scts.tracking.views import CorreiosTrackingView
+from scts.tracking.web.views import CorreiosTrackingView
 
 
 def setup_routes(app):
