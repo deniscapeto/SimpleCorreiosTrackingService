@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from scts.tracking.routes import setup_routes
+from scts.tracking.web.routes import setup_routes
 
 
 def build_app():

@@ -19,7 +19,7 @@ class TestCorreiosTrackingView():
     @pytest.fixture
     def mock_get_tracking_events(self, tracking_events_list):
         with patch(
-            'scts.tracking.views.get_tracking_events'
+            'scts.tracking.web.views.get_tracking_events'
         ) as mock:
             mock.return_value = [tracking_event.as_dict() for tracking_event in tracking_events_list]
             yield mock
