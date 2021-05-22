@@ -1,7 +1,6 @@
 import pytest
 
 from scts.tracking.domain.models import TrackingEvent
-from tests.unit.tracking.domain.fake_repositories import FakeTrackingEventRepository
 
 
 @pytest.fixture

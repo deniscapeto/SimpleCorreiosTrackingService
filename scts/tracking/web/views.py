@@ -1,9 +1,10 @@
 import json
 import logging
 
+import inject
 from aiohttp import web
+from aiohttp.web_request import Request
 
-from scts.tracking import Container
 from scts.tracking.adapters.correios.exceptions import CorreiosException
 from scts.tracking.application.services import GetTrackingEventsService
 
@@ -12,13 +13,16 @@ logger = logging.getLogger(__name__)
 
 class CorreiosTrackingView(web.View):
 
-    async def get(self):
+    @inject.autoparams('service')
+    def __init__(self, request: Request, service: GetTrackingEventsService) -> None:
+        self.service = service()
+        super().__init__(request)
 
+    async def get(self):
         tracking_code = self.request.match_info.get('tracking_code')
 
         try:
-            service = Container.get(GetTrackingEventsService)
-            tracking_events = await service.get_tracking_events(tracking_code)
+            tracking_events = await self.service.get_tracking_events(tracking_code)
 
         except CorreiosException as exc:
 
