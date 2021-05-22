@@ -7,5 +7,5 @@ from scts.tracking.domain.models import TrackingEvent
 class TrackingEventRepository(ABC):
 
     @abstractmethod
-    async def save(trackingEvent: TrackingEvent):
+    async def save(self, trackingEvent: TrackingEvent):
         pass

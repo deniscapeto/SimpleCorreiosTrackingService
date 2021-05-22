@@ -22,7 +22,7 @@ class CorreiosHttpClient:
             try:
                 async with session.post(url, json=payload, headers=headers) as resp:
                     resp.raise_for_status()
-                    print(resp.status)
+                    print(f'Response from Correios: {resp.status}')
                     return await resp.text()
 
             except ClientResponseError as exc:
