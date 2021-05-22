@@ -1,20 +1,22 @@
-from asgiref.sync import sync_to_async
-
 from scts.tracking.adapters.correios.http_client import get_correios_tracking_events
+from scts.tracking.domain.repositories import TrackingEventRepository
 
 
-async def get_tracking_events(tracking_code: str):
+class GetTrackingEventsService:
 
-    tracking_events = await get_correios_tracking_events(tracking_code)
+    def __init__(
+        self,
+        trackingEventRepository: TrackingEventRepository
+    ) -> None:
+        self.trackingEventRepository = trackingEventRepository
 
-    await _save_tracking_events(tracking_events)
+    async def get_tracking_events(self, tracking_code: str):
 
-    result = [tracking_event.as_dict() for tracking_event in tracking_events]
+        tracking_events = await get_correios_tracking_events(tracking_code)
 
-    return result
+        for tracking_event in tracking_events:
+            await self.trackingEventRepository.save(tracking_event)
 
+        result = [tracking_event.as_dict() for tracking_event in tracking_events]
 
-@sync_to_async
-def _save_tracking_events(tracking_events):
-    for t in tracking_events:
-        t.save()
+        return result

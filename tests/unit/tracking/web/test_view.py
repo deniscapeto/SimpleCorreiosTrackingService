@@ -1,11 +1,13 @@
 import asyncio
 import json
-from unittest.mock import patch
+from unittest.mock import AsyncMock
 
 import pytest
 
 from scts.factory.build_app import build_app
+from scts.tracking import Container
 from scts.tracking.adapters.correios.exceptions import CorreiosException
+from scts.tracking.application.services import GetTrackingEventsService
 
 
 class TestCorreiosTrackingView():
@@ -18,11 +20,12 @@ class TestCorreiosTrackingView():
 
     @pytest.fixture
     def mock_get_tracking_events(self, tracking_events_list):
-        with patch(
-            'scts.tracking.web.views.get_tracking_events'
-        ) as mock:
-            mock.return_value = [tracking_event.as_dict() for tracking_event in tracking_events_list]
-            yield mock
+        service = Container.get(GetTrackingEventsService)
+        service.get_tracking_events = AsyncMock(
+            return_value=[tracking_event.as_dict() for tracking_event in tracking_events_list]
+        )
+
+        yield service.get_tracking_events
 
     async def test_should_return_200_when_tracking_code_is_valid(
         self,
@@ -31,7 +34,6 @@ class TestCorreiosTrackingView():
         tracking_events_dict,
         tracking_code
     ):
-
         resp = await client.get(f'/tracking/{tracking_code}')
 
         assert resp.status == 200
