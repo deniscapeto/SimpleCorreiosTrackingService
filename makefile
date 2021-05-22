@@ -6,8 +6,8 @@ run:
 	pipenv run gunicorn -b 0.0.0.0:8000 scts:app --worker-class aiohttp.GunicornUVLoopWebWorker --reload
 
 check:
-	isort scts
-	flake8 scts
+	isort scts tests
+	flake8 scts tests
 
 install:
 	pip install pipenv

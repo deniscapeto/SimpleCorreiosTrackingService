@@ -1,4 +1,5 @@
 from unittest.mock import patch
+
 import pytest
 from aiohttp.client_exceptions import ClientResponseError
 from aioresponses import aioresponses
@@ -39,6 +40,7 @@ class TestCorreiosHttpClient():
 
                 await CorreiosHttpClient().get_tracking_events('PU524124388BR')
 
+
 @pytest.fixture
 def mock_extract_tracking_events(tracking_events_list):
     with patch(
@@ -47,6 +49,7 @@ def mock_extract_tracking_events(tracking_events_list):
         mock.return_value = tracking_events_list
         yield mock
 
+
 @pytest.fixture
 def mock_get_tracking_events(fake_html):
     with patch(
@@ -54,6 +57,7 @@ def mock_get_tracking_events(fake_html):
     ) as mock:
         mock.return_value = fake_html
         yield mock
+
 
 async def test_should_return_valid_tracking_events_when_given_valid_code(
     mock_get_tracking_events,

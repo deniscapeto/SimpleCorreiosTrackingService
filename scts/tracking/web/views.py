@@ -1,9 +1,13 @@
 import json
+import logging
 
 from aiohttp import web
 
+from scts.tracking import Container
 from scts.tracking.adapters.correios.exceptions import CorreiosException
-from scts.tracking.application.services import get_tracking_events
+from scts.tracking.application.services import GetTrackingEventsService
+
+logger = logging.getLogger(__name__)
 
 
 class CorreiosTrackingView(web.View):
@@ -13,9 +17,12 @@ class CorreiosTrackingView(web.View):
         tracking_code = self.request.match_info.get('tracking_code')
 
         try:
-            tracking_events = await get_tracking_events(tracking_code)
+            service = Container.get(GetTrackingEventsService)
+            tracking_events = await service.get_tracking_events(tracking_code)
 
-        except CorreiosException:
+        except CorreiosException as exc:
+
+            logger.error(exc)
             error_body = json.dumps(
                 {
                     'Error': [
