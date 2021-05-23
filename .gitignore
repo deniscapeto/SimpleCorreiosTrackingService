@@ -3,3 +3,5 @@ __pycache__/
 .vscode
 .coverage
 scts/settings/scts.db
+
+.DS_Store
