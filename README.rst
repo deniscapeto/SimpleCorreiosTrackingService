@@ -16,6 +16,22 @@ A simple API to get tracking events from Correios in a JSON format
 Installation
 ------------
 
+Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: shell
+
+    brew install pyenv (optional)
+    brew install pyenv-virtualenv (optional)
+    brew install pipenv
+
+STCS uses **diagram** lib that depends on `Graphviz
+<https://www.graphviz.org/>`_ to render the diagram, so you need to install Graphviz to update diagrams images
+
+.. code:: shell
+
+    brew install graphviz
+
 Create virtual enviroment
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -34,15 +50,6 @@ Or you can just create a virtualenv and activate:
 
 Just make sure you are using python ``3.8``.
 
-Requirements
-~~~~~~~~~~~~
-
-STCS uses **diagram** lib that depends on `Graphviz
-<https://www.graphviz.org/>`_ to render the diagram, so you need to install Graphviz to update diagrams images
-
-.. code:: shell
-
-    brew install graphviz
 
 Install
 ~~~~~~~
